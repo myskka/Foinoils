@@ -6,6 +6,12 @@ public class TrashCan : MonoBehaviour
     {
         if (other.CompareTag("Item"))
         {
+            TrashCounter counter = FindFirstObjectByType<TrashCounter>();
+            if (counter != null)
+            {
+                counter.ItemCollected();
+            }
+            
             Destroy(other.gameObject);
         }
     }
